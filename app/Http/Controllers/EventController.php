@@ -18,7 +18,8 @@ class EventController extends Controller
         //
         //$user = Auth::user();
         //$events = $user->getTasks;
-        $events = Event::orderBy("id")->get();
+        //$events = Event::orderBy("id")->get();
+        $events = Event::where('user_id',Auth::user()->id)->latest('updated_at')->paginate(10);
 
         return view('panel.events.index',compact('events'));
     }
@@ -42,6 +43,7 @@ class EventController extends Controller
         $event = new Event();
 
 
+        $event -> user_id = Auth::user()->id;
 
         $event->name = $request->name;
         $event->description = $request->description;

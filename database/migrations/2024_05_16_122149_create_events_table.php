@@ -24,13 +24,13 @@ return new class extends Migration
             $table->dateTime('event_date');
             $table->timestamps();
 
-/*
+
             $table->foreign('user_id')
                 ->on('users')
                 ->references('id')
                 ->onDelete('cascade');
 
-            $table->foreign('star_id')
+          /*  $table->foreign('star_id')
                 ->on('stars')
                 ->references('id')
                 ->onDelete('cascade');

@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+            <img width="120" height="auto" id="my-svg" src="{{asset("Events/logo.jpeg")}}" alt="My SVG">
         </x-slot>
 
         <x-validation-errors class="mb-4" />
