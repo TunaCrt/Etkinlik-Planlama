@@ -30,15 +30,17 @@ return new class extends Migration
                 ->references('id')
                 ->onDelete('cascade');
 
-          /*  $table->foreign('star_id')
-                ->on('stars')
-                ->references('id')
-                ->onDelete('cascade');
-
             $table->foreign('university_id')
                 ->on('universities')
                 ->references('id')
-                ->onDelete('cascade');   */
+                ->onDelete('cascade');
+
+            /*  $table->foreign('star_id')
+                  ->on('stars')
+                  ->references('id')
+                  ->onDelete('cascade');
+
+                */
 
 
         });

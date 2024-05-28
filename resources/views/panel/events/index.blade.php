@@ -16,7 +16,7 @@
                                 <p class="card-text">
                                     {{$event->description}}
                                 </p>
-                                <p class="card-text"><small class="text-muted">Etkinlik Tarihi: {{$event->event_date}} / Last updated {{$event->updated_at->diffForHumans()}}</small></p>
+                                <p class="card-text"><small class="text-muted">Üniversite: {{$event->getUniversity->name}} / Etkinlik Tarihi: {{$event->event_date}} / Last updated {{$event->updated_at->diffForHumans()}}</small></p>
 
                                 <div class="col-lg-3 col-sm-6 col-12" style="position: absolute; right: 0; top: 0;">
                                     <small class="text-light fw-semibold"></small>
@@ -27,11 +27,13 @@
                                             </button>
                                             <ul class="dropdown-menu dropdown-menu-end" style="">
                                                 <li><a class="dropdown-item" href="{{route("panel.event.show",$event->id)}}">Detay</a></li>
-                                                <li><a class="dropdown-item" href="{{ route("panel.event.destroy",$event->id) }}">Güncelle</a></li>
-                                                <li>
-                                                    <hr class="dropdown-divider">
-                                                </li>
-                                                <li><a class="dropdown-item" href="{{ route("panel.event.destroy",$event->id) }}">Sil</a></li>
+                                                @if( $event -> user_id == Auth::user()->id)
+                                                    <li><a class="dropdown-item" href="{{ route("panel.event.destroy",$event->id) }}">Güncelle</a></li>
+                                                    <li>
+                                                        <hr class="dropdown-divider">
+                                                    </li>
+                                                    <li><a class="dropdown-item" href="{{ route("panel.event.destroy",$event->id) }}">Sil</a></li>
+                                                @endif
                                             </ul>
                                         </div>
                                     </div>

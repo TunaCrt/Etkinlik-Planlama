@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\City;
 use App\Models\Event;
+use App\Models\university;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -19,7 +21,8 @@ class EventController extends Controller
         //$user = Auth::user();
         //$events = $user->getTasks;
         //$events = Event::orderBy("id")->get();
-        $events = Event::where('user_id',Auth::user()->id)->latest('updated_at')->paginate(10);
+        //$events = Event::where('user_id',Auth::user()->id)->latest('updated_at')->paginate(10);
+        $events = Event::latest('updated_at')->paginate(10);
 
         return view('panel.events.index',compact('events'));
     }
@@ -30,7 +33,10 @@ class EventController extends Controller
     public function create()
     {
         //
-        return view('panel.events.create');
+        $cities =City::orderBy("id")->get();
+        $universities =university::orderBy("id")->get();
+
+        return view('panel.events.create',compact("cities","universities"));
     }
 
     /**
@@ -46,6 +52,7 @@ class EventController extends Controller
         $event -> user_id = Auth::user()->id;
 
         $event->name = $request->name;
+        $event->university_id = $request->university;
         $event->description = $request->description;
         $event->event_date = $request->event_date;
         if ($request->hasFile("photo")) {
@@ -98,5 +105,11 @@ class EventController extends Controller
 
         }
         return redirect()->route("panel.event.index");
+    }
+    // UniversityController.php
+    public function getUniversitiesByCity($cityId)
+    {
+        $universities = University::where('city_id', $cityId)->get();
+        return response()->json($universities);
     }
 }
