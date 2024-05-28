@@ -72,8 +72,8 @@
         <!-- Menu -->
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-            <div class="app-brand demo">
-                <a href="index.html" class="app-brand-link">
+            <div class="app-brand demo m-3 ">
+                <a href="{{route("panel.event.index")}}" class="app-brand-link">
                     <img width="120" height="auto" id="my-svg" src="{{asset("Events/logo.jpeg")}}" alt="My SVG">
 
 
@@ -86,35 +86,20 @@
 
             <div class="menu-inner-shadow"></div>
 
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
+
+
             <ul class="menu-inner py-1">
                 <!-- Dashboard -->
                 <li class="menu-item active">
-                    <a href="index.html" class="menu-link">
+                    <a href="{{route("panel.event.index")}}" class="menu-link">
                         <i class="menu-icon tf-icons bx bx-home-circle"></i>
                         <div data-i18n="Analytics">Anasayfa</div>
                     </a>
                 </li>
 
                 <!-- Layouts -->
-                <li class="menu-item">
-                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                        <i class="menu-icon tf-icons bx bx-layout"></i>
-                        <div data-i18n="Layouts">Layouts</div>
-                    </a>
 
-                    <ul class="menu-sub">
-                        <li class="menu-item">
-                            <a href="layouts-without-menu.html" class="menu-link">
-                                <div data-i18n="Without menu">Without menu</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="layouts-without-navbar.html" class="menu-link">
-                                <div data-i18n="Without navbar">Without navbar</div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
 
                     <ul class="menu-sub">
                         <li class="menu-item">
@@ -138,30 +123,13 @@
                 <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
                 <!-- Cards -->
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route("panel.event.MyEvents")}}" class="menu-link">
                         <i class="menu-icon tf-icons bx bx-collection"></i>
-                        <div data-i18n="Basic">Kategoriler</div>
+                        <div data-i18n="Basic">Etkinliklerim</div>
                     </a>
                 </li>
                 <!-- User interface -->
-                <li class="menu-item">
-                    <a href="javascript:void(0)" class="menu-link menu-toggle">
-                        <i class="menu-icon tf-icons bx bx-box"></i>
-                        <div data-i18n="User interface">User interface</div>
-                    </a>
-                    <ul class="menu-sub">
-                        <li class="menu-item">
-                            <a href="ui-accordion.html" class="menu-link">
-                                <div data-i18n="Accordion">Accordion</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="ui-alerts.html" class="menu-link">
-                                <div data-i18n="Alerts">Alerts</div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+
 
 
             </ul>

@@ -33,6 +33,9 @@ Route::middleware([
     Route::get('/destroy/{id}',[EventController::class,'destroy'])->name('panel.event.destroy');
     Route::get('/show/index/{id}', [EventController::class, 'show'])->name("panel.event.show");
 
+    Route::get('/MyEvents',[EventController::class,'MyEvents'])->name('panel.event.MyEvents');
+
+
 
     Route::get("/edit/{id}", [EventController::class, "edit"])->name("panel.event.edit");
     Route::post("/update", [EventController::class, "update"])->name("panel.event.update");

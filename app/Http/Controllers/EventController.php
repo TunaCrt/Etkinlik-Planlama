@@ -112,4 +112,11 @@ class EventController extends Controller
         $universities = University::where('city_id', $cityId)->get();
         return response()->json($universities);
     }
+
+    public function MyEvents()
+    {
+        $events = Event::where('user_id',Auth::user()->id)->latest('updated_at')->paginate(10);
+
+        return view('panel.events.index',compact('events'));
+    }
 }
